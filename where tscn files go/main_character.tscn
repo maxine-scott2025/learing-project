@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bisu6dxd15xms"]
+
+[ext_resource type="Texture2D" uid="uid://7y3cxbpcw2b8" path="res://assets/penguin.png" id="1_gouw1"]
+[ext_resource type="Script" path="res://where tscn files go/main_character.gd" id="1_qfy6t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d26cu"]
+size = Vector2(96, 112)
+
+[node name="Main Character" type="CharacterBody2D"]
+script = ExtResource("1_qfy6t")
+
+[node name="Penguin" type="Sprite2D" parent="."]
+position = Vector2(-1, -1)
+scale = Vector2(0.96552, 1.01631)
+texture = ExtResource("1_gouw1")
+hframes = 15
+vframes = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_d26cu")
