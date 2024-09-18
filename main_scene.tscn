@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0px7b5sr2n2c"]
+[gd_scene load_steps=9 format=3 uid="uid://c0px7b5sr2n2c"]
 
 [ext_resource type="Texture2D" uid="uid://bhwh6g6yhd2bn" path="res://assets/istockphoto-1333010525-170667a.jpg" id="1_i5guh"]
+[ext_resource type="Script" path="res://Global.gd" id="1_ue416"]
 [ext_resource type="Texture2D" uid="uid://yub1y0x1ue3u" path="res://assets/d6a771b4017ba8de3180c9568304a980596d04bc_2_488x500.png" id="2_oubdj"]
 [ext_resource type="PackedScene" uid="uid://bisu6dxd15xms" path="res://where tscn files go/main_character.tscn" id="3_bpbk1"]
 [ext_resource type="PackedScene" uid="uid://ckoudui7btmfb" path="res://where tscn files go/item.tscn" id="4_nc27d"]
+[ext_resource type="Script" path="res://label.gd" id="5_fpan6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_48crd"]
 texture = ExtResource("2_oubdj")
@@ -905,9 +907,10 @@ sources/0 = SubResource("TileSetAtlasSource_48crd")
 
 [node name="Main Scene" type="Node2D"]
 position = Vector2(-4, 2)
+script = ExtResource("1_ue416")
 
 [node name="background" type="Sprite2D" parent="."]
-position = Vector2(582, 322)
+position = Vector2(581, 326)
 scale = Vector2(2.14898, 2.01863)
 texture = ExtResource("1_i5guh")
 
@@ -921,6 +924,31 @@ layer_0/tile_data = PackedInt32Array(458758, 65536, 7, 458764, 65536, 7, 917521,
 position = Vector2(203, 87)
 scale = Vector2(0.3, 0.3)
 
+[node name="Camera2D" type="Camera2D" parent="Main Character"]
+position = Vector2(-23.3333, 56.6667)
+zoom = Vector2(3, 3)
+
+[node name="Control" type="Control" parent="Main Character"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -676.667
+offset_top = -290.0
+offset_right = -636.667
+offset_bottom = -250.0
+
+[node name="Label" type="Label" parent="Main Character/Control"]
+layout_mode = 0
+offset_left = 46.6667
+offset_top = 10.0
+offset_right = 88.6667
+offset_bottom = 33.0
+text = "hello"
+script = ExtResource("5_fpan6")
+
 [node name="Item" parent="." instance=ExtResource("4_nc27d")]
-position = Vector2(442, 149)
+position = Vector2(438, 153)
 scale = Vector2(0.2, 0.2)
+
+[node name="Item2" parent="." instance=ExtResource("4_nc27d")]
+position = Vector2(653, 311)
+scale = Vector2(0.4, 0.4)
